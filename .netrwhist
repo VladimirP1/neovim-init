@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/vladimir/Experiments/tdlib/tdlib-src/td'
-let g:netrw_dirhist_2='/home/vladimir/Experiments/tdlib/tdlib-src/td/telegram'
-let g:netrw_dirhist_3='/home/vladimir/Experiments/tdlib/tdlib-src/td'
-let g:netrw_dirhist_4='/home/vladimir/Experiments/tdlib/tdlib-src/td/telegram'
-let g:netrw_dirhist_5='/home/vladimir/Experiments/tdlib/tdlib-src/td'
-let g:netrw_dirhist_6='/home/vladimir/Experiments/tdlib'
