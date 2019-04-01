@@ -2,11 +2,11 @@ all:
 	echo You can 'make install' or 'make update'
 
 install: ~/.local/share/nvim/site/autoload/plug.vim ~/.config/nvim/init.vim
-	nvim +PlugInstall +qa
+	nvim +PlugInstall "+call coc#util#install()" +qa
 
 update:
 	sh -c 'cd ~/.config/nvim && git pull'
-	nvim +PlugUpdate +qa
+	nvim +PlugUpdate "+call coc#util#install()" +qa
 
 .PHONY: all install ~/.config/nvim/init.vim
 

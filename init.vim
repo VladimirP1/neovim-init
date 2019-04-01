@@ -9,6 +9,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'acarapetis/vim-colors-github'
 call plug#end()
 
+
 set hidden
 set encoding=UTF-8
 
