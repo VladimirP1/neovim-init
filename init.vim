@@ -1,23 +1,16 @@
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'Shougo/deoplete.nvim'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'lighttiger2505/deoplete-vim-lsp'
+Plug 'neoclide/coc.nvim'
 Plug 'octol/vim-cpp-enhanced-highlight'
-"Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'bling/vim-bufferline'
 Plug 'easymotion/vim-easymotion'
-Plug 'othree/xml.vim'
+"Plug 'othree/xml.vim'
+Plug 'acarapetis/vim-colors-github'
 call plug#end()
 
 set hidden
 set encoding=UTF-8
-
-nnoremap <silent> gd :LspDefinition <CR>
-nnoremap <silent> gD :LspDeclaration <CR>
-nnoremap <silent> <F2> :LspRename <CR>
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <M-[> <Esc>
@@ -31,28 +24,6 @@ nnoremap <F9> :NERDTreeToggle<CR>
 nnoremap <Space> i_<Esc>r
 
 set pastetoggle=<F3>
-
-function FindProjectRoot(bufpath)
-    let t1=lsp#utils#find_nearest_parent_file(a:bufpath, 'compile_commands.json')
-    let t2=lsp#utils#find_nearest_parent_file(a:bufpath, 'compile_flags.txt')
-    return strlen(t1) > 0 ? t1 : t2
-endfunction
-
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'clangd']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(FindProjectRoot(lsp#utils#get_buffer_path()))},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
-endif
-"let g:lsp_log_verbose = 1
-"let g:lsp_log_file = expand('~/vim-lsp.log')
-"let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('auto_complete_delay', 250)
-set completeopt-=preview
 
 set mouse=a
 
@@ -68,3 +39,13 @@ set keymap=russian-jcukenwin
 set imsearch=0
 set iminsert=0
 inoremap <F4> <C-^>
+
+colo github
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
+nn <silent><buffer> <C-l> :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
+nn <silent><buffer> <C-k> :call CocLocations('ccls','$ccls/navigate',{'direction':'L'})<cr>
+nn <silent><buffer> <C-j> :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
+nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>
+nn <silent> K :call CocActionAsync('doHover')<cr>
