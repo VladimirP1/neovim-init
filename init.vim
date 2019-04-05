@@ -22,6 +22,7 @@ nnoremap <F8>      :bn<CR>
 inoremap <F8> <ESC>:bn<CR>
 
 nnoremap <F9> :NERDTreeToggle<CR>
+nnoremap <F10> :NERDTreeFocus<CR>
 nnoremap <Space> i_<Esc>r
 
 set pastetoggle=<F3>
@@ -45,8 +46,11 @@ colo github
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rn <Plug>(coc-rename)
+vmap <leader>f  <Plug>(coc-format-selected)
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
 nn <silent><buffer> <C-l> :call CocLocations('ccls','$ccls/navigate',{'direction':'D'})<cr>
 nn <silent><buffer> <C-k> :call CocLocations('ccls','$ccls/navigate',{'direction':'L'})<cr>
 nn <silent><buffer> <C-j> :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
 nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>
-nn <silent> K :call CocActionAsync('doHover')<cr>
+nn <silent> <leader>K :call CocActionAsync('doHover')<cr>
