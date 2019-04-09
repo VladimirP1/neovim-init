@@ -42,7 +42,8 @@ set imsearch=0
 set iminsert=0
 inoremap <F4> <C-^>
 
-colo github
+"colo github
+colo koehler
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
