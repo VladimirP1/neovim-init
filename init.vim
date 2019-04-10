@@ -57,6 +57,7 @@ nn <silent><buffer> <C-k> :call CocLocations('ccls','$ccls/navigate',{'direction
 nn <silent><buffer> <C-j> :call CocLocations('ccls','$ccls/navigate',{'direction':'R'})<cr>
 nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction':'U'})<cr>
 nn <silent> <leader>K :call CocActionAsync('doHover')<cr>
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 nnoremap <silent> <leader>F :1,$ !clang-format -style="{BasedOnStyle: Google, IndentWidth: 4}"<cr>
 
