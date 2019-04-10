@@ -5,8 +5,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'bling/vim-bufferline'
 Plug 'easymotion/vim-easymotion'
-"Plug 'othree/xml.vim'
+Plug 'luochen1990/rainbow'
 Plug 'acarapetis/vim-colors-github'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 
@@ -58,3 +59,5 @@ nn <silent><buffer> <C-h> :call CocLocations('ccls','$ccls/navigate',{'direction
 nn <silent> <leader>K :call CocActionAsync('doHover')<cr>
 
 nnoremap <silent> <leader>F :1,$ !clang-format -style="{BasedOnStyle: Google, IndentWidth: 4}"<cr>
+
+let g:rainbow_active = 1
