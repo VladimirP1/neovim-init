@@ -3,12 +3,18 @@
     "ccls": {
       "command": "/home/vladimir/ThirdPartySources/ccls/build/ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": ["obj-x86_64-linux-gnu/Release/compile_commands.json"],
       "initializationOptions": {
          "cache": {
            "directory": ".ccls-cache"
          }
        }
+    },
+    "haskell": {
+      "command": "hie-wrapper",
+      "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
+      "filetypes": ["hs", "lhs", "haskell"],
+      "initializationOptions": {}
     }
   }
 }
